@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+
+$desaturatedRed: hsl(0, 36%, 70%);
+$softRed: hsl(0, 93%, 68%);
+$grayishRed: hsl(0, 6%, 24%);
+
+//Gradients
+// - Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
+// - Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%)
+
+*{box-sizing: border-box;}
+html{font-size: 62.5%; overflow-x:hidden;}
+
+body{font-family: 'Josefin Sans', sans-serif; margin: 0; background-image: linear-gradient(0deg, #fff4f4, #fff8f8);        
+    main{display: grid; min-height: 100vh; place-items: center;
+        .container{display: flex; max-width: 1440px; width:100vw; background-color: #fefaf9;
+            .container__left{flex: 1 1 220px; padding:65px 40px 0 165px; display: flex; flex-direction: column; background: url("../images/bg-pattern-desktop.svg") bottom 8px left -1px;
+                &>img{align-self: flex-start;
+                    &.hero-mobile{display: none; width: 100%; margin-top: 40px;}
+                }
+                form{flex:1; display: flex; flex-direction: column; padding-top: 133px;
+                    h1{margin: 0; font-size: 6.4rem; letter-spacing: 1.72rem; text-transform: uppercase; line-height: 6.9rem; color:$grayishRed;
+                        span{font-weight: 300; color:$desaturatedRed;}
+                    }
+                    p{font-size: 1.5rem; letter-spacing: 0.05rem; line-height: 2.86rem; max-width: 450px; margin: 20px 0 38px 1px; color:$desaturatedRed;}
+
+                    .container__input{position: relative; display: flex; align-items: center; height: 56px; max-width: 445px; border: 1px solid #D8CCCE; border-radius: 30px;
+                        input[type="email"]{border: none; height: 100%; width: 100%; padding: 1px 0 0 31px; background-color: transparent; font-size: 1.5rem; color:$grayishRed; letter-spacing: 0.05rem;
+                            &:focus-visible{outline: none;}
+                            &::-webkit-input-placeholder{font-size: 1.5rem; letter-spacing: 0.06rem; color:#DCCECB; font-weight: 400; font-family: 'Josefin Sans', sans-serif;}
+                            &::-moz-placeholder{font-size: 1.5rem; letter-spacing: 0.06rem; color:#DCCECB; font-weight: 400; font-family: 'Josefin Sans', sans-serif;}
+                            &:-ms-input-placeholder{font-size: 1.5rem; letter-spacing: 0.06rem; color:#DCCECB; font-weight: 400; font-family: 'Josefin Sans', sans-serif;}
+                            &:-moz-placeholder{font-size: 1.5rem; letter-spacing: 0.06rem; color:#DCCECB; font-weight: 400; font-family: 'Josefin Sans', sans-serif;}
+                        }
+                        button{border: none; cursor: pointer; box-shadow:0 17px 24px 0px rgba(244, 163, 163, 0.5); width:131px; border-radius: 27px; display: flex; align-items: center; justify-content: center; padding: 0; height: 100%; background: linear-gradient(135deg, hsl(0, 80%, 86%) 0%, hsl(0, 74%, 74%) 100%);
+                            img{margin-left: 4px;}
+                            &:hover{background: linear-gradient(270deg, #f6b5b5, #f9d1d1);}
+                        }
+                        .pristine-error{position: absolute; left: 31px; bottom:-28px; font-size: 1.4rem; color: $softRed}
+                        &.has-danger{border: 2px solid $softRed;}
+                    }
+                    
+                }
+            }
+            .container__right{flex:1;
+                img{display: block; object-fit: cover; height: 100vh; width: 100%;}
+            }
+
+            @media(max-width:1245px){
+                .container__left{padding-left: 40px; flex:1;}
+            }
+
+            @media(max-width:980px){
+                .container__left{flex:0.9;
+                    form{
+                        h1{font-size: 4.7rem; line-height: 5.3rem; letter-spacing: 0.9rem;}
+                    }                   
+                }
+            }
+
+            @media(max-width:760px){max-width: 89vw; justify-content: center; background-image: linear-gradient(0deg, #fff4f4, #fff8f8); 
+                .container__left{background-image: none; padding-top: 40px; padding-bottom: 110px;
+                    .logo{margin-left: 40px;}
+                    &>img{
+                        &.hero-mobile{display: block;}
+                    }
+                    form{text-align: center; padding-top: 60px;
+                        p{max-width: none; line-height: 2.46rem;}
+                        h1{}
+                        .container__input{max-width: none;}
+                    }                   
+                }
+                .container__right{display: none;}
+            }
+
+            @media(max-width:500px){max-width: none;
+                .container__left{padding-left: 0; padding-right: 0; flex: 1;                   
+                    form{padding: 60px 35px 0;                      
+                        .container__input{
+                            button{width: 100px;}
+                        }
+                    }                   
+                }               
+            }
+        }       
+    }
+}
